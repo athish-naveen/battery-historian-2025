@@ -1,24 +1,24 @@
 # Battery Historian
 
+This battery-historian verson has updated header links that works to vizualize all the plots. 
+
 Battery Historian is a tool to inspect battery related information and events on an Android device running Android 5.0 Lollipop (API level 21) and later, while the device was not plugged in. It allows application developers to visualize system and application level events on a timeline with panning and zooming functionality, easily see various aggregated statistics since the device was last fully charged, and select an application and inspect the metrics that impact battery specific to the chosen application. It also allows an A/B comparison of two bugreports, highlighting differences in key battery related metrics.
+
 
 ## Getting Started
 
-#### Using Docker
-
-Install [Docker](<https://docs.docker.com/engine/installation/>).
-
-Run the Battery Historian image. Choose a port number and replace `<port>` with
-that number in the commands below:
-
-```
-docker -- run -p <port>:9999 gcr.io/android-battery-historian/stable:3.0 --port 9999
-```
+Haven't run it on windows yet
 
 For Linux and Mac OS X:
 
-* That's it, you're done! Historian will be available at
-  `http://localhost:<port>`.
+> First GOTO "Building from source code" to setup GOLANG, python2.7 and java
+> alternatively you can also directly parse bugreport.txt > bugreport.html without any setup using
+```
+cd $GOPATH/src/github.com/google/battery-historian/scripts
+python2.7 historian.py bugreport.txt > bugreport.html
+```
+* That's it, you're done! Historian will vizualise all battery statistics info.
+
 
 For Windows:
 
@@ -77,6 +77,15 @@ $ go run setup.go
 # Run Historian on your machine (make sure $PATH contains $GOBIN)
 $ go run cmd/battery-historian/battery-historian.go [--port <default:9999>]
 ```
+if setup fails or if the bugreport doesnt upload
+```
+cd third_party/closure-library/
+git reset --hard v20170409
+cd -
+go run setup.go
+```
+try this and run the historian again.
+
 
 Remember, you must always run battery-historian from inside the `$GOPATH/src/github.com/google/battery-historian` directory:
 
