@@ -1,0 +1,343 @@
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.axis path, .axis line {
+  fill: none;
+  shape-rendering: crispEdges;
+  stroke: black;
+}
+
+.axis text {
+  font-size: 1.2em;
+}
+
+.axis path {
+  stroke: #000000;
+}
+
+.bars-group > rect {
+  stroke: none;
+}
+
+.bars-group > rect:hover {
+  stroke: black;
+}
+
+.historian-tooltip {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: .85em;
+  padding: 5px 10px;
+  pointer-events: none;
+  position: absolute;
+  white-space: pre;
+}
+
+.time-point {
+  pointer-events: none;
+  stroke: black;
+}
+
+.level-event-marker-line {
+  pointer-events: none;
+  stroke: black;
+  stroke-dasharray: 5, 5;
+  stroke-width: 1;
+}
+
+.level-event-marker-line.overflow {
+  stroke: red;
+}
+
+.level-event-marker-label {
+  font-size: .60em;
+  text-anchor: end;
+}
+
+.level-highlighted {
+  stroke-width: 4;
+}
+
+.level-left {
+  text-anchor: end;
+}
+
+.level-line {
+  stroke: black;
+  stroke-width: 3;
+  fill: none;
+}
+
+.level-line-connector {
+  stroke: black;
+  stroke-width: 1;
+  fill: none;
+}
+
+line.level-summary {
+  stroke-width: 4;
+  stroke-linecap: round;
+  fill: none;
+}
+
+line.level-summary.filtered {
+  stroke: #ccc;
+}
+
+rect.level-summary {
+  fill-opacity: 0.2;
+  pointer-events: none;
+}
+
+.level {
+  pointer-events: none;
+}
+
+.powermonitor-overlay {
+  fill: none;
+  stroke: green;
+  stroke-width: 4;
+}
+
+.level-timeinfo {
+  background-color: rgba(255, 255, 255, .95);
+  border: 1px solid #aaa;
+  font-size: .85em;
+  padding : .5em 1em;
+  pointer-events: none;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.series-divider {
+  stroke: lightgray;
+}
+
+.series-level rect {
+  fill: red;
+  fill-opacity: 0;
+}
+
+.series-level rect:hover {
+  fill-opacity: .2;
+  stroke: black;
+}
+
+.series-label {
+  font-size: .95em;
+  text-anchor: end;
+}
+
+.series-label:not(.heading) {
+  cursor: pointer;
+}
+
+.series-label.heading {
+  fill: blue;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-anchor: start;
+}
+
+.series-label.unreliable {
+  fill: grey;
+}
+
+.series-label.app-specific {
+  font-weight: bold;
+}
+
+.threshold-label {
+  padding-bottom: 20px;
+  font-size: 14pt;
+  padding-bottom: 20px;
+}
+
+#panel-historian .graph {
+  position: absolute;
+}
+
+#panel-historian .panel-body {
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+table.values-table td {
+ border: 1px solid gray;
+ padding: 0 10px;
+}
+
+.scrollable-menu {
+  height: auto;
+  max-height: 500px;
+  overflow-x: hidden;
+}
+
+rect.bar, circle.bar {
+  stroke-opacity: 0;
+  stroke-width: 7px;
+}
+
+rect.bar.unavailable {
+  stroke-width: 0;  /* Disable hover effect. */
+}
+
+rect.bar:hover, circle.bar:hover {
+  stroke-opacity: 0.5;
+}
+
+#power-selector-container {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+}
+
+#power-selector {
+  height: 20px;
+  padding: 0;
+  width: 350px;
+}
+
+.help-icon {
+  position: static;
+}
+
+.help-icon-container {
+  cursor: pointer;
+  /*
+     Opacity seems to cause the icons to be rendered wrongly and aren't visible.
+     Possibly related to: https://groups.google.com/a/chromium.org/forum/#!topic/chromium-reviews/hBIaYrnmiRA
+     TODO: revisit this later on.
+  opacity: 0.5;
+  */
+}
+
+.help-icon-container:hover {
+  /*
+     Opacity seems to cause the icons to be rendered wrongly and aren't visible.
+     Possibly related to: https://groups.google.com/a/chromium.org/forum/#!topic/chromium-reviews/hBIaYrnmiRA
+     TODO: revisit this later on.
+  opacity: 0.9;
+  */
+}
+
+.historian-tooltip.help-tooltip {
+  white-space: pre-wrap;
+}
+
+.temperature {
+  background-color: #ffebcd;
+}
+
+.series-warning {
+  color: darkred;
+}
+
+.historian-v2.settings .settings-section, .historian-v2.settings .settings-section label {
+  margin-right: 5px;
+}
+
+.historian-v2.settings .settings-section label input,
+.historian-v2.settings .settings-section .select2-container.set-domain {
+  margin-left: 4px;
+}
+
+.historian-v2.settings .settings-section label:hover {
+  background-color: #BDECB6;
+  cursor: pointer;
+}
+
+.historian-v2.settings {
+  font-size: 0.9em;
+}
+
+.legend-item {
+  display: inline-block;
+  height: 10px;
+  margin-right: 8px;
+  width: 10px;
+}
+
+.legend-item.circle {
+  border-radius: 50%;
+}
+
+.highlighted-cell {
+  background-color: #FFB6C1;
+}
+
+#copy span {
+  float: left;
+  font-weight: bold;
+  width: 50px;
+}
+
+#copy textarea {
+  margin-top: 5px;
+  max-height: 500px;
+  max-width: 1000px;
+  white-space: pre;
+}
+
+.offscreen {
+  right: 10000px;
+  position: absolute;
+  visibility: hidden;
+  white-space: pre;
+}
+
+.settings-section.center {
+  margin-left: 70px;
+}
+
+.settings-section.settings-right {
+  float: right;
+  margin-left: 5px;
+  margin-right: 0;
+}
+
+.settings-button {
+  position: relative;
+}
+
+.settings-overflow {
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.settings-overflow.show {
+  display: block;
+}
+
+.settings-overflow a {
+  color: black;
+  display: block;
+  padding: 10px 14px;
+  text-align: left;
+  text-decoration: none;
+}
+
+.settings-overflow a:hover {
+  background-color: #f1f1f1;
+}
+
+.graph.faded .bar {
+  opacity: 0.4;
+}

@@ -1,0 +1,110 @@
+<!--
+Copyright 2016 Google Inc. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+      http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+
+{{define "tablesidebar"}}
+<div class="row">
+  {{if .AppStats}}
+  <div class="sdk-version-21 non-comparison" id="app-selector">
+    <label>App Selection</label>
+    <div>
+      <span>Sort apps by</span>
+      <select id="appSorter">
+        <option value="name">Name</option>
+        <option value=".DevicePowerPrediction" data-type="percentage">Device estimated power use</option>
+        {{if ge .CheckinSummary.ReportVersion 14}}
+        <option value="audio.total_time_msec" data-type="duration">Audio time</option>
+        <option value="audio.count">Audio count</option>
+        <option value="camera.total_time_msec" data-type="duration">Camera time</option>
+        <option value="camera.count">Camera count</option>
+        <option value="cpu.user_time_ms" data-type="duration">CPU user time</option>
+        <option value="cpu.system_time_ms" data-type="duration">CPU system time</option>
+        <option value="flashlight.total_time_msec" data-type="duration">Flashlight time</option>
+        <option value="flashlight.count">Flashlight count</option>
+        {{end}}
+        {{if ge .CheckinSummary.ReportVersion 17}}
+        <option value="state_time.background_time_msec" data-type="duration">Background time</option>
+        <option value="bluetooth_misc.ble_scan_time_msec" data-type="duration">BLE scan time</option>
+        <option value="bluetooth_misc.ble_scan_count">BLE scan count</option>
+        <option value="state_time.foreground_time_msec" data-type="duration">Foreground time</option>
+        <option value="state_time.foreground_service_time_msec" data-type="duration">Foreground service time</option>
+        <option value="state_time.top_time_msec" data-type="duration">Top time</option>
+        {{end}}
+        <option value="scheduled_job.total_time_msec" data-type="duration">Total scheduled job time</option>
+        <option value="scheduled_job.count">Total scheduled job count</option>
+        <option value="sync.total_time_msec" data-type="duration">Total sync time</option>
+        <option value="sync.count">Total sync count</option>
+        <option value="vibrator.total_time_msec" data-type="duration">Vibrator time</option>
+        <option value="vibrator.count">Vibrator count</option>
+        {{if ge .CheckinSummary.ReportVersion 14}}
+        <option value="video.total_time_msec" data-type="duration">Video time</option>
+        <option value="video.count">Video count</option>
+        {{end}}
+        <option value="wakelock.partial_time_msec" data-type="duration">Total userspace wakelock time</option>
+        <option value="wakelock.partial_count">Total userspace wakelock count</option>
+        {{if .CheckinSummary.AppWakeupsByAlarmName}}
+        <!-- The sum of the count of individual wakeup alarms is more accurate than the number retrieved from apk.wakeups -->
+        <option value="wakeup_alarm.count">Total number of wakeup alarms</option>
+        {{else}}
+        <option value="apk.wakeups">Total number of wakeup alarms</option>
+        {{end}}
+        <option value="wifi.full_wifi_lock_time_msec" data-type="duration">Full wifi lock time</option>
+        <option value="wifi.scan_time_msec" data-type="duration">Wifi scan time</option>
+        {{if ge .CheckinSummary.ReportVersion 12}}
+        <option value="wifi.scan_count">Wifi scan count</option>
+        {{end}}
+      </select>
+    </div>
+    <select id="appSelector" data-toggle="tooltip" name="Pkg Name" title="Choosing an application here will display app-specific details in the 'App Stats' tab, and also app-specific metrics in 'Historian v2'.">
+      <option></option>
+      {{range $app := .AppStats}}
+      <option value="{{$app.RawStats.Uid}}">{{$app.RawStats.Name}} (Uid: {{$app.RawStats.Uid}})</option>
+      {{end}}
+    </select>
+  </div>
+  {{end}}
+</div>
+<div class="row">
+  <label>Tables</label>
+  <div class="panel-group table-indices" id="accordion">
+    <div class="panel panel-default sdk-version-21">
+      <div id="collapse-header-system" class="panel-heading accordion-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse-system">
+        <span class="glyphicon glyphicon-triangle-bottom expand-hint"></span>
+        <span class="panel-title">System Stats</span>
+      </div>
+      <div id="collapse-system" class="panel-collapse collapse in"></div>
+    </div>
+    <div class="panel panel-default sdk-version-21 non-comparison">
+      <div id="collapse-header-history" class="panel-heading accordion-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse-history">
+        <span class="glyphicon glyphicon-triangle-right expand-hint"></span>
+        <span class="panel-title">History Stats</span>
+      </div>
+      <div id="collapse-history" class="panel-collapse collapse">
+        <div style="padding: 5px">
+          <select class="btn btn-default" data-toggle="tooltip" title="Choose a summary" style="width: 100%;"></select>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default sdk-version-21 non-comparison">
+      <div id="collapse-header-app" class="panel-heading accordion-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse-app">
+        <span class="glyphicon glyphicon-triangle-right expand-hint"></span>
+        <span class="panel-title">App Stats</span>
+      </div>
+      <div id="collapse-app" class="panel-collapse collapse">
+        <div class="noAppSelected" style="padding: 10px">
+          <span>Please choose an application.</span>
+          <span data-toggle="tooltip" title="Choose an application in the sidebar" class="quick-hint glyphicon glyphicon-question-sign choose-app"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{end}}

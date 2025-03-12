@@ -1,0 +1,394 @@
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* Extend bootstrap panel to support tabs */
+.panel-group .panel-tabs .panel-heading {
+  border-bottom: 1px solid #ddd;
+}
+
+.panel.panel-tabs .panel-heading {
+  padding: 2px 2px 0px 2px;
+}
+
+.panel.panel-tabs .nav-tabs {
+  border-bottom: none;
+}
+
+/* Overwrite bootstrap settings to make the navbar more prominent */
+.navbar-brand {
+  color: #ccc !important;
+}
+
+.navbar-brand {
+  font-size: 2em;
+}
+
+.navbar-nav li a {
+  font-size: 1em;
+}
+
+.nav-tabs li a {
+  line-height: .2em;
+}
+
+.panel {
+  margin-bottom: 10px;
+}
+
+.panel-heading {
+  font-size: .9em;
+  padding: 2px 10px;
+}
+
+.panel-body {
+  height: calc(100% - 1.5em);
+}
+/************* End overwriting bootstrap settings *************/
+
+/* Overwrite select2 settings to be consistent with bootstrap style */
+.select2-choices {
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #ccc !important;
+  line-height: 1em;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  font-size: .9em;
+}
+
+.select2-search-choice {
+  background: white !important;
+}
+
+.select2-disabled .select2-result-label {
+  color: #aaa;
+}
+/************* End overwriting library settings *************/
+
+table.dataTable td {
+  word-break: break-word;
+}
+table.dataTable tbody tr.row-clickable {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+table.dataTable tbody tr.label-top td,
+table.dataTable tbody td.label-top  {
+  background: #CC99FF;
+}
+
+table.dataTable tbody tr.label-high td,
+table.dataTable tbody td.label-high {
+  background: #FFBFBF;
+}
+
+table.dataTable tbody tr.label-medium td,
+table.dataTable tbody td.label-medium {
+  background: #FFFFCC;
+}
+
+table.dataTable tbody tr:hover td,
+table.dataTable tbody tr.label-top:hover td,
+table.dataTable tbody tr.label-high:hover td,
+table.dataTable tbody tr.label-medium:hover td {
+  background-color: grey;
+  color: #fff;
+}
+
+table.dataTable thead tr {
+  font-weight: bold;
+}
+
+table.dataTable thead th,
+table.dataTable thead td,
+table.dataTable tbody td {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 10px;
+}
+
+.dataTables_filter input {
+  border-radius: 4px;
+  border: 1px solid #aaa;
+}
+
+.dataTables_filter input,
+.dataTables_filter label,
+.dataTables_length label,
+.dataTables_length select,
+.dataTables_info {
+  font-weight: normal;
+  font-size: .95em;
+}
+
+.dataTables_length select {
+  background: white;
+  border-radius: 4px;
+}
+
+#panel-tables .paginate_button {
+  border-radius: 4px;
+  padding: .4em .8em;
+}
+/************* End overwriting datatables settings *************/
+
+.select2-result-label {
+  font-size: .9em;
+}
+/************* End overwriting select2 settings *************/
+
+pre {
+  margin-top: 5px;
+}
+
+#appSelector {
+  width: calc(100% - 39px);
+}
+
+#app-selector {
+  margin-bottom: 10px;
+}
+
+#app-selector .select2-container {
+  width: 100%;
+}
+
+#btns-dialog {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+}
+
+#clearApp {
+  float: right;
+}
+
+#panel-fileinfo {
+  font-size: .9em;
+}
+
+#panel-fileinfo .panel-body {
+  padding: 10px;
+}
+
+#panel-fileinfo td {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#panel-tables h3 {
+  font-size: 1.5em;
+}
+
+#panel-tables .panel-body {
+  padding: 10px 15px;
+  height: calc(100% - 30px);
+  overflow-y: scroll;
+}
+
+#panel-tables td {
+  font-size: .9em;
+}
+
+#toggle-fileinfo {
+  margin: 5px;
+}
+
+.accordion-heading {
+  cursor: pointer;
+}
+
+.accordion-heading:hover {
+  background-color: #eee;
+}
+
+.btn-browse {
+  font-size: 1em;
+}
+
+.btn-right, .btn-right-tabs {
+  float: right;
+}
+
+.btn-right-tabs {
+  margin-right: 5px;
+}
+
+.btn-submit {
+  font-size: 1em;
+}
+
+.btn-toggle {
+  padding: 5px;
+  font-size: 0.75em;
+  width: 75px;
+}
+
+.btn-xxs {
+  padding: 0px 2px;
+  font-size: 10px;
+}
+
+.fileinfo-table {
+  margin-right: 150px;
+}
+
+.historian-note {
+  position: fixed;
+  top: 51px;
+  z-index: 1000;
+  width: 100%;
+  padding: 5px 20px;
+}
+
+.list-item-active {
+  box-shadow: inset 1px 1px 5px rgba(0,0,0,.125);
+  background-color: #f3f3f3;
+}
+
+.expand-hint {
+  font-size: .8em;
+  margin-right: 5px;
+}
+
+.last-success {
+  text-align: right;
+}
+
+.glyphicon-inline-left {
+  margin-right: 5px;
+}
+
+.message-title {
+  width: 150px;
+}
+
+.configurations tr:hover {
+  background-color: lightgrey;
+}
+
+.hidden {
+  display: none;
+}
+
+.quick-hint {
+  cursor: pointer;
+}
+
+.summary-title,
+.summary-title-inline {
+  font-weight: bold;
+  font-size: 1em;
+  margin: 10px 0px;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.summary-title-inline {
+  cursor: pointer;
+}
+
+.summary-title:hover,
+.summary-title-inline:hover,
+.summary-title-highlight {
+  background: #ddd;
+}
+
+.summary-content {
+  font-size: 1em;
+  margin: 5px 0px;
+}
+
+.show-hide-inline {
+  top: -2px;
+  margin-right: 10px;
+}
+
+.table-copy {
+  float: right;
+  margin-left: 5px;
+}
+
+.table-sidebar .row {
+  padding-right: 5px;
+}
+
+.table-indices {
+  font-size: .9em;
+}
+.table-indices .panel-title {
+  font-size: 1.2em;
+}
+
+.table-indices .list-group-item {
+  cursor: pointer;
+  padding: 8px 15px;
+  word-break: break-all;
+}
+
+.table-indices .list-group-item:hover {
+  background: #f3f3f3;
+}
+
+#dialog .modal-body {
+  margin-bottom: 5px;
+  word-wrap: break-word;  /** Stop text from overflowing horizontally. */
+}
+
+@media screen and (min-width: 1200px) {  /** This is 900/(width % below). */
+  #dialog .modal-lgify {
+    width: 75%;
+  }
+}
+
+.multi-line {
+  white-space: pre-line;
+}
+
+.show-histogram {
+  padding: 3px 6px;
+}
+
+.wakeups-histogram .plot {
+  height: 300px;
+  width: 950px;
+}
+
+.wakeups-histogram .title {
+  text-align: center;
+}
+
+.wakeups-histogram div.xAxis div.tickLabel {
+  min-width: 110px;
+  /*
+    Align the date to the bottom of graph, regardless of text width.
+    Flot does not appear to have an option to set this.
+  */
+  text-align: right !important;
+  transform: rotate(-50deg) translate(-85px, 40px);
+  -ms-transform:rotate(-50deg) translate(-85px, 40px); /* IE 9 */
+  -moz-transform:rotate(-50deg) translate(-85px, 40px); /* Firefox */
+  -webkit-transform:rotate(-50deg) translate(-85px, 40px); /* Safari and Chrome */
+  -o-transform:rotate(-50deg) translate(-85px, 40px); /* Opera */
+  transform-origin: 0 0;
+}
+
+/* Firefox is...special. */
+.no-header td {
+  width: 1px;
+  white-space: nowrap;
+}

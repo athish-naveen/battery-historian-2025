@@ -1,0 +1,134 @@
+<!--
+Copyright 2016 Google Inc. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+      http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+
+{{define "content"}}
+<div class="row">
+  <div class="col-xs-12">
+    <div id="panel-fileinfo" class="panel panel-default collapse in" data-toggle="collapse">
+      <span class="sdk-version-21"><button id="toggle-fileinfo" class="glyphicon glyphicon-remove btn btn-default btn-right btn-xxs" type="button" data-toggle="collapse" data-target="#panel-fileinfo"></button></span>
+      <div class="panel-body">
+        <table id="fileinfo" class="fileinfo-table">
+          <tr class="sdk-version-21">
+            <td><b>File:</b> {{.Filename}}</td>
+            <td><b>Build:</b> {{.CheckinSummary.BuildFingerprint}}</td>
+          </tr>
+          <tr>
+            <td><b>Device:</b> {{.DeviceModel}} {{.CheckinSummary.Build}}</td>
+            <td><b>Android ID:</b> {{.DeviceID}}</td>
+          </tr>
+        </table>
+        <div id="btns-dialog">
+          {{if .Error}}
+          <a id="btn-errors" class="btn btn-default btn-toggle" data-toggle="modal" data-target="#dialog" href="#errors">Errors</a>
+          <pre id="errors" style="display: none;">{{.Error}}</pre>
+          {{end}}
+          {{if .Warning}}
+          <a id="btn-warnings" class="btn btn-default btn-toggle" data-toggle="modal" data-target="#dialog" href="#warnings">Warnings</a>
+          <pre id="warnings" style="display: none;">{{.Warning}}</pre>
+          {{end}}
+        </div>
+        {{if .Overflow}}
+          {{template "overflow_message" .}}
+        {{end}}
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12">
+    <div id="panel-historian" class="panel panel-default panel-tabs collapse in">
+      <div class="panel-heading">
+        <ul class="nav nav-tabs">
+          <li id="tab-historian-v2" class="active sdk-version-21" data-toggle="tooltip" title="Data visualization for history stats, version 2">
+            <a href="#historian-v2" data-toggle="tab">Historian V2</a>
+          </li>
+          <li id="tab-historian-system-health" class="sdk-version-21" data-toggle="tooltip" title="Data visualization for System Health events">
+            <a href="#historian-system-health" data-toggle="tab">System Health</a>
+          </li>
+          <li id="tab-historian-event-log" class="sdk-version-21" data-toggle="tooltip" title="Data visualization for event log events">
+            <a href="#historian-event-log" data-toggle="tab">Event Log</a>
+          </li>
+          <li id="tab-historian-custom" class="sdk-version-21" data-toggle="tooltip" title="Data visualization for choosing a custom set of events">
+            <a href="#historian-custom" data-toggle="tab">Custom</a>
+          </li>
+          <li id="tab-historian" data-toggle="tooltip" title="Data visualization for history stats, version 1">
+            <a href="#historian" data-toggle="tab">Historian</a>
+          </li>
+          <span class="sdk-version-21">
+            <span id="toggle-historian"
+                  class="glyphicon glyphicon-remove btn btn-default btn-right-tabs btn-xxs"
+                  data-toggle="collapse"
+                  data-target="#panel-historian">
+            </span>
+          </span>
+        </ul>
+      </div>
+      <div class="panel-body">
+        <div class="tab-content">
+          <!-- historian v2 -->
+          <div id="historian-v2" class="tab-pane fade in active" >
+            {{template "historianv2" .}}
+             <div id="power-selector-container">
+               <select id="power-selector" class="btn btn-default" data-toggle="tooltip">
+                 <br><br>
+               </select>
+             </div>
+          </div>
+          <!-- System health tab -->
+          <div id="historian-system-health" class="tab-pane fade" >
+            {{template "historianv2" .}}
+          </div>
+          <!-- Event log tab -->
+          <div id="historian-event-log" class="tab-pane fade" >
+            {{template "historianv2" .}}
+          </div>
+          <!-- Custom tab -->
+          <div id="historian-custom" class="tab-pane fade" >
+            {{template "historianv2" .}}
+          </div>
+          <!-- historian v1 -->
+          <div id="historian" class="tab-pane fade">
+            <div class="loading">Please wait, drawing chart...</div>
+            <div id="historian-chart" class="hidden">{{ .Historian }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12">
+    <!-- Power statistics -->
+    <div id="panel-powerstats" class="panel panel-default collapse in">
+      <div class="panel-heading">
+        <span>Power Statistics</span>
+        <span id="toggle-powerstats"
+              class="glyphicon glyphicon-remove btn btn-default btn-right btn-xxs"
+              data-toggle="collapse"
+              data-target="#panel-powerstats">
+        </span>
+      </div>
+      <div class="panel-body">
+        {{template "powerstats" .}}
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 sdk-version-21">
+    <div class="table-sidebar col-xs-3">
+      {{template "tablesidebar" .}}
+    </div>
+    <div class="col-xs-9">
+      <div class="row">
+        <div id="panel-tables" class="panel panel-default panel-tabs">
+          {{template "tables" .}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{end}}
