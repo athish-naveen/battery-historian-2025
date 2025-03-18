@@ -13,7 +13,7 @@ Battery Historian is a tool to inspect battery related information and events on
 ```
 docker build -t battery-historian .
 ```
-- After build complete, open docker>images and run the image on port 9999
+- After build complete, open docker-desktop > "images" and run the battery historian image build on port 9999
 
 - Battery historian will open on localhost:9999
 
