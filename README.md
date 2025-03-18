@@ -9,7 +9,7 @@ Battery Historian is a tool to inspect battery related information and events on
 
 *Haven't run it on windows yet*
 
-#### To create a docker image 
+#### To create a docker image clone the repository, in the main project folder run
 ```
 docker build -t battery-historian .
 ```
